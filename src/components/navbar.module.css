@@ -1,0 +1,24 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navlink {
+  text-decoration: none;
+  color: black;
+  margin-left: 20px;
+}
+
+.cartCount {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 30px;
+}
+
+.logo {
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
+}

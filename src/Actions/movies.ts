@@ -1,0 +1,16 @@
+import { setError, setLoading, setMovies } from "../store/movieSlice";
+import axios from "axios";
+
+export function fetchMovies(id: String) {
+  return async function fetchMoviesThunk(dispatch: any, getState: any) {
+    dispatch(setLoading(true));
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/movie?page=${id}`
+      );
+      dispatch(setMovies(data.data));
+    } catch (err: any) {
+      dispatch(setError(err.message));
+    }
+  };
+}

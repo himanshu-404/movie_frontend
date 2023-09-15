@@ -5,12 +5,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import WatchList from "./Pages/WatchList";
 import MovieDetails from "./Pages/MovieDetails";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Provider store={store}>
         <BrowserRouter>
+          <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/watchlist" element={<WatchList />} />
@@ -18,7 +20,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </Provider>
-    </div>
+    </>
   );
 }
 
