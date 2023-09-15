@@ -1,3 +1,4 @@
+import { setMovieDetails } from "../store/movieDetailsSlice";
 import { setError, setLoading, setMovies } from "../store/movieSlice";
 import axios from "axios";
 
@@ -9,6 +10,7 @@ export function fetchMovies(id: String) {
         `${process.env.REACT_APP_BACKEND_URL}/movie?page=${id}`
       );
       dispatch(setMovies(data.data));
+      dispatch(setMovieDetails(data.data));
     } catch (err: any) {
       dispatch(setError(err.message));
     }

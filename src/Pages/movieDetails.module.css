@@ -1,0 +1,43 @@
+/* MovieDetails.css */
+.movie-details {
+  display: flex;
+  margin: 20px;
+}
+
+.movie-poster img {
+  max-width: 400px;
+  height: 600px;
+  margin-right: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.movie-info {
+  flex-grow: 1;
+}
+
+.movie-title {
+  font-size: 28px;
+  margin: 0;
+}
+
+.movie-release-date {
+  font-size: 16px;
+  color: #777;
+}
+
+.movie-overview {
+  margin-top: 16px;
+  font-size: 18px;
+}
+
+.movie-popularity {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.movie-margin-top {
+  margin-top: 8px;
+}

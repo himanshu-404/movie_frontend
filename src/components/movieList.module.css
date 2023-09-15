@@ -32,6 +32,7 @@
   height: fit-content;
   object-fit: cover;
   margin-right: 16px;
+  cursor: pointer;
 }
 
 .movie-info {
@@ -44,11 +45,19 @@
   align-items: center;
   justify-content: space-evenly;
   margin-top: 5px;
+  cursor: pointer;
 }
 
 .movie-release-date {
   font-size: 14px;
   color: #777;
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+  transition: all 0.3s ease-in-out;
+  font-weight: 500;
 }
 
 .movie-overview {
