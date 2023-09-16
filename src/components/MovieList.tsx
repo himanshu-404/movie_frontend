@@ -4,23 +4,37 @@ import { fetchMovies } from "../Actions/movies";
 import style from "./movieList.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import Loader from "./Loader";
+import {
+  addMovieToWatchListAction,
+  fetchWatchList,
+  removeMovieFromWatchListAction,
+} from "../Actions/watchList";
 
 const MovieList = () => {
   const { data, loading, error } = useAppSelector((state) => state.movies);
+  const { data: watchListData, loading: watchListLoading } = useAppSelector(
+    (state) => state.watchList
+  );
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(fetchMovies("1"));
+    dispatch(fetchWatchList());
+    dispatch(fetchMovies("2"));
   }, [dispatch]);
 
-  const handleAdd = (productData: object) => {
-    console.log(productData);
+  const handleAddWatchlist = (moviedId: number) => {
+    dispatch(addMovieToWatchListAction(moviedId));
+  };
+
+  const handleRemoveWatchlist = (moviedId: number) => {
+    dispatch(removeMovieFromWatchListAction(moviedId));
   };
 
   return (
     <>
-      {loading && <Loader />}
+      {(loading || watchListLoading) && <Loader />}
 
       <div className={style["card-wrapper"]}>
         {data?.map((movies) => (
@@ -45,21 +59,36 @@ const MovieList = () => {
                 Release Date: {movies.release_date}
               </p>
               <p className={style["movie-overview"]}>
-                {movies.overview.slice(0, 100) + "  ..."}
+                {movies.overview.slice(0, 100)}
 
-                <Link to={`/movie/${movies.id}`} className={style["link"]}>
-                  Read More
-                </Link>
+                {movies.overview.length > 100 && (
+                  <Link to={`/movie/${movies?.id}`} className={style["link"]}>
+                    ...Read More
+                  </Link>
+                )}
               </p>
               <p className={style["movie-popularity"]}>
                 Popularity: {movies.popularity}
               </p>
-              <button
-                onClick={() => handleAdd(movies)}
-                className={style["btn"]}
-              >
-                Add to watchlist
-              </button>
+              <p className={style["movie-popularity"]}>
+                Rating: {movies.vote_average}
+              </p>
+
+              {watchListData?.find((item) => item.movie_id == movies.id) ? (
+                <button
+                  className={style["btn-disabled"]}
+                  onClick={() => handleRemoveWatchlist(movies?.id)}
+                >
+                  Remove from watchlist
+                </button>
+              ) : (
+                <button
+                  onClick={() => handleAddWatchlist(movies?.id)}
+                  className={style["btn"]}
+                >
+                  Add to watchlist
+                </button>
+              )}
             </div>
           </div>
         ))}

@@ -12,13 +12,6 @@ const MovieDetails = () => {
     (state) => state.movieDetails
   );
 
-  const images = [
-    `https://image.tmdb.org/t/p/w500${data?.backdrop_path}`,
-    `https://image.tmdb.org/t/p/w500${data?.poster_path}`,
-  ];
-
-  const [current, setCurrent] = useState(0);
-
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -32,13 +25,9 @@ const MovieDetails = () => {
       <div className={style["movie-details"]}>
         <div className={style["movie-poster"]}>
           <img
-            src={images[current]}
+            src={`https://image.tmdb.org/t/p/w500${data?.poster_path}`}
+            // src={`https://image.tmdb.org/t/p/w500${data?.backdrop_path}`}
             alt=""
-            onClick={() => {
-              current === images.length - 1
-                ? setCurrent(0)
-                : setCurrent(current + 1);
-            }}
           />
         </div>
         <div className={style["movie-info"]}>

@@ -6,6 +6,7 @@ import Home from "./Pages/Home";
 import WatchList from "./Pages/WatchList";
 import MovieDetails from "./Pages/MovieDetails";
 import Navbar from "./components/Navbar";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/watchlist" element={<WatchList />} />
             <Route path="/movie/:id" element={<MovieDetails />} />
           </Routes>
+          <Toaster position="top-right" reverseOrder={false} />
         </BrowserRouter>
       </Provider>
     </>

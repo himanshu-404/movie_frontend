@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./navbar.module.css";
+import { useAppSelector } from "../store/hooks";
 
 const Navbar = () => {
-  // const items = useSelector((state) => state.cart);
+  const { data, loading } = useAppSelector((state) => state.watchList);
+
   return (
     <div className={style.navbar}>
       <span className={style.logo}>MOVIES</span>
@@ -12,7 +14,7 @@ const Navbar = () => {
           Home
         </Link>
         <Link className={style.navlink} to="/watchlist">
-          <span className={style.cartCount}>Watch list: {5}</span>
+          <span className={style.cartCount}>Watch list: {data?.length}</span>
         </Link>
       </div>
     </div>
