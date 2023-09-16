@@ -21,7 +21,7 @@ const movieSlice = createSlice({
       state.loading = action.payload;
     },
     setMovies: (state, action: PayloadAction<any[]>) => {
-      state.data = action.payload;
+      state.data = [...state.data, ...action.payload];
       state.loading = false;
       state.error = null;
     },

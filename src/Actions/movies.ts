@@ -2,7 +2,7 @@ import { setMovieDetails } from "../store/movieDetailsSlice";
 import { setError, setLoading, setMovies } from "../store/movieSlice";
 import axios from "axios";
 
-export function fetchMovies(id: String) {
+export function fetchMovies(id: number) {
   return async function fetchMoviesThunk(dispatch: any, getState: any) {
     dispatch(setLoading(true));
     try {

@@ -60,6 +60,58 @@
   margin-top: 12px;
   font-weight: bold;
 }
+.header-filter {
+  width: 95vw;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  position: fixed;
+  background: whitesmoke;
+}
+
+.drop-button {
+  background-color: white;
+  color: black;
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  font-family: Baloo, sans-serif;
+  width: 152px;
+  border: 1px solid black;
+}
+.drop-button:hover,
+.drop-button:focus {
+  background-color: rgb(253, 247, 247);
+}
+
+.dropdown-content {
+  position: absolute;
+  overflow: hidden;
+  width: 150px;
+  list-style-type: none;
+  top: 26px;
+  padding-left: 0;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background: white;
+  border: 1px solid black;
+  color: black;
+  cursor: pointer;
+}
+.dropdown-content div {
+  padding: 10px 5px;
+}
+.scrollDiv div:hover {
+  background: rgb(253, 247, 247);
+}
+.scrollDiv {
+  max-height: 300px;
+  overflow-y: auto;
+}
 
 .btn-action {
   display: flex;
