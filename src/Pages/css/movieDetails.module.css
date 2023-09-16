@@ -40,3 +40,15 @@
 .movie-margin-top {
   margin-top: 8px;
 }
+
+.btn-watchlist {
+  border: none;
+  outline: none;
+  background: rgb(40, 42, 40);
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}

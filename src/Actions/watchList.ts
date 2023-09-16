@@ -68,3 +68,30 @@ export function removeMovieFromWatchListAction(movieId: number) {
     }
   };
 }
+
+export function updateMovieWatchListAction(movieId: number, watched: boolean) {
+  return async function updateMovieWatchListThunk(
+    dispatch: any,
+    getState: any
+  ) {
+    try {
+      dispatch(setWatchListLoading(true));
+
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_BACKEND_URL}/watchlist/`,
+        {
+          id: movieId.toString(),
+          isWatched: watched,
+        }
+      );
+
+      dispatch(setWatchListLoading(false));
+      dispatch(updateMovieWatchList(data.data));
+      toast.success("Movie updated in watchlist");
+    } catch (err: any) {
+      dispatch(setWatchListLoading(false));
+
+      toast.error(err?.response?.data?.message || err.message);
+    }
+  };
+}

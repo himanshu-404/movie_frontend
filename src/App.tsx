@@ -19,7 +19,7 @@ function App() {
             <Route path="/watchlist" element={<WatchList />} />
             <Route path="/movie/:id" element={<MovieDetails />} />
           </Routes>
-          <Toaster position="top-right" reverseOrder={false} />
+          <Toaster position="top-center" reverseOrder={false} />
         </BrowserRouter>
       </Provider>
     </>

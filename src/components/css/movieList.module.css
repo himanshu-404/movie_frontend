@@ -1,27 +1,3 @@
-.btn {
-  border: none;
-  outline: none;
-  background: lightgreen;
-  padding: 5px 10px;
-  color: #fff;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.btn-disabled {
-  border: none;
-  outline: none;
-  background: lightcoral;
-  padding: 5px 10px;
-  color: #fff;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-}
-
 .card-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -83,4 +59,11 @@
 .movie-popularity {
   margin-top: 12px;
   font-weight: bold;
+}
+
+.btn-action {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
 }

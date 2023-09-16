@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../store/hooks";
 import { fetchMovies } from "../Actions/movies";
-import style from "./movieList.module.css";
+import style from "./css/movieList.module.css";
+import "./css/common.css";
 import { Link, useNavigate } from "react-router-dom";
 import Loader from "./Loader";
 import {
@@ -76,7 +77,7 @@ const MovieList = () => {
 
               {watchListData?.find((item) => item.movie_id == movies.id) ? (
                 <button
-                  className={style["btn-disabled"]}
+                  className={"btn-disabled"}
                   onClick={() => handleRemoveWatchlist(movies?.id)}
                 >
                   Remove from watchlist
@@ -84,7 +85,7 @@ const MovieList = () => {
               ) : (
                 <button
                   onClick={() => handleAddWatchlist(movies?.id)}
-                  className={style["btn"]}
+                  className={"btn"}
                 >
                   Add to watchlist
                 </button>

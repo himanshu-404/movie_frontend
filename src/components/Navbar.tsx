@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import style from "./navbar.module.css";
+import style from "./css/navbar.module.css";
 import { useAppSelector } from "../store/hooks";
 
 const Navbar = () => {
