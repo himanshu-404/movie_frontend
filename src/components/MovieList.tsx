@@ -188,6 +188,9 @@ const MovieList = () => {
                     <p className={style["movie-popularity"]}>
                       Popularity: {movies.popularity}
                     </p>
+                    <p className={style["movie-popularity"]}>
+                      Rating: {movies.vote_average}
+                    </p>
                     {watchListData?.find(
                       (item) => item.movie_id == movies.id
                     ) ? (
